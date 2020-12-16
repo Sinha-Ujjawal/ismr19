@@ -1,1 +1,5 @@
+openpyxl>=3.0,<4.0
+pandas>=1.0,<2.0
+pdftotext==2.1.5
 prefect>=0.13,<0.14
+xlrd>=2.0,<3.0

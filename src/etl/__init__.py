@@ -16,7 +16,9 @@ def create_flow() -> Flow:
         "FLOW: insurance-marketplace-realities-20xx-fall-update-executive-summary",
         executor=LocalDaskExecutor(),
     ) as flow:
-        tasks.download_document()
+        download_doc_task = tasks.download_document()
+        generate_report_task = tasks.generate_report()
+        download_doc_task.set_downstream(generate_report_task)
     return flow
 
 
