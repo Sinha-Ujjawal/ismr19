@@ -1,6 +1,7 @@
 """This script contain prefect task to download the asked document
 """
 import os
+import datetime
 from prefect import task
 from prefect.engine.signals import SKIP
 import urllib.request
@@ -18,7 +19,9 @@ HEADERS = {
 }
 
 
-@task(log_stdout=True)
+@task(
+    log_stdout=True, max_retries=3, retry_delay=datetime.timedelta(minutes=2),
+)
 def download_document():
     if not os.path.exists(DOWNLOAD_PATH):
         print(f"Downloading the file: {DOCUMENT_URL}, to: {DOWNLOAD_PATH}")
