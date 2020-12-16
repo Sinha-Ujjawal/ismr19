@@ -1,6 +1,8 @@
 """This script contain prefect task to download the asked document
 """
+import os
 from prefect import task
+from prefect.engine.signals import SKIP
 import urllib.request
 from .consts import DOCUMENT_URL, DOWNLOAD_PATH
 
@@ -18,8 +20,12 @@ HEADERS = {
 
 @task(log_stdout=True)
 def download_document():
-    print(f"Downloading the file: {DOCUMENT_URL}, to: {DOWNLOAD_PATH}")
-    opener = urllib.request.build_opener()
-    opener.addheaders = HEADERS.items()
-    urllib.request.install_opener(opener)
-    urllib.request.urlretrieve(DOCUMENT_URL, DOWNLOAD_PATH)
+    if not os.path.exists(DOWNLOAD_PATH):
+        print(f"Downloading the file: {DOCUMENT_URL}, to: {DOWNLOAD_PATH}")
+        opener = urllib.request.build_opener()
+        opener.addheaders = HEADERS.items()
+        urllib.request.install_opener(opener)
+        urllib.request.urlretrieve(DOCUMENT_URL, DOWNLOAD_PATH)
+    else:
+        print(f"File: {DOWNLOAD_PATH} already exists, skipping this task")
+        raise SKIP
