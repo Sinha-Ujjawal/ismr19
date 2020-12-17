@@ -40,6 +40,8 @@ def transform_page(page: str) -> Tuple[str, str]:
     retry_delay=datetime.timedelta(minutes=2),
 )
 def generate_report():
+    """Prefect task to generate report from the document
+    """
     with open(DOWNLOAD_PATH, "rb") as fp:
         pdf_as_text = pdftotext.PDF(fp)
     pages_with_line_of_business = (
