@@ -1,4 +1,4 @@
-"""Main script to run the workflow dag using command line arguments
+"""Main script to run the workflow dag
 """
 from etl import run_flow
 

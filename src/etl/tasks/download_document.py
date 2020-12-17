@@ -23,6 +23,11 @@ HEADERS = {
     log_stdout=True, max_retries=3, retry_delay=datetime.timedelta(minutes=2),
 )
 def download_document():
+    """Prefect task to download the document
+
+    Raises:
+        SKIP: Raises SKIP if the document already present
+    """
     if not os.path.exists(DOWNLOAD_PATH):
         print(f"Downloading the file: {DOCUMENT_URL}, to: {DOWNLOAD_PATH}")
         opener = urllib.request.build_opener()
