@@ -25,6 +25,7 @@ The Goal of this exercise is to download the document from the link- https://www
         ```bash
         # replace <env-name> with your own environment name, e.g.- "py376", "ismr19" etc.
         conda create -n <env-name> python=3.7.6
+        conda activate <env-name>
         ```
         Now refer the following link to setup `poppler` https://pypi.org/project/pdftotext/
         
