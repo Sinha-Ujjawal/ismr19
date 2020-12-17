@@ -37,14 +37,14 @@ The Goal of this exercise is to download the document from the link- https://www
         cd src
         python run.py
         ```
-    3. For both ways, there will be two folders created `data` and `report`
-        1. Docker way-
-            1. `data` folder in `/ismr19/data`
-            2. `report` folder in `/ismr19/report`
-        2. Conda way-
-            1. `data` folder in `/ismr19/src/data`
-            2. `report` folder in `/ismr19/src/report`
-        
-        The `data` folder contains `insurance-marketplace-realities-fall-2019.pdf` file -> the document
+4. For both ways, there will be two folders created `data` and `report`
+    1. Docker way-
+        1. `data` folder in `/ismr19/data`
+        2. `report` folder in `/ismr19/report`
+    2. Conda way-
+        1. `data` folder in `/ismr19/src/data`
+        2. `report` folder in `/ismr19/src/report`
+    
+    The `data` folder contains `insurance-marketplace-realities-fall-2019.pdf` file -> the document
 
-        The `report` folder contains `report.xlsx` file -> the report
+    The `report` folder contains `report.xlsx` file -> the report
