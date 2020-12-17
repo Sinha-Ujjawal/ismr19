@@ -18,6 +18,11 @@ The Goal of this exercise is to download the document from the link- https://www
         ```
         As the image creates two folder `/ismr19/src/data` containing the document, and `/ismr19/src/report` containing the excel report use `--mount` to mount host directory to container's directory
         ```bash
+        # make data and report directory if it does not exists
+        mkdir data
+        mkdir report
+        ```
+        ```bash
         # replace <tag> with the tage name used in the previous command
         docker run --mount type=bind,source="$(pwd)"/data,target=/ismr19/src/data --mount type=bind,source="$(pwd)"/report,target=/ismr19/src/report -t <tag>
         ```
